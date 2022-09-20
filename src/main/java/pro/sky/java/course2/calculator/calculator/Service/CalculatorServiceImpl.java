@@ -21,10 +21,10 @@ public class CalculatorServiceImpl implements CalculatorService{
     }
 
     @Override
-    public int calculateQuotient(int num1, int num2) {
+    public double calculateQuotient(int num1, int num2) {
         if (num2 == 0) {
-
+            throw new RuntimeException("Нельзя делить на ноль");
         }
-        return num1 / num2;
+        return (double) num1 / num2;
     }
 }

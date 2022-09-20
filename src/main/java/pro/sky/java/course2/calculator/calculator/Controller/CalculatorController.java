@@ -8,10 +8,10 @@ import pro.sky.java.course2.calculator.calculator.Service.CalculatorService;
 
 @RestController
 @RequestMapping("/calculator")
-public class Controller {
+public class CalculatorController {
     private final CalculatorService calculatorService;
 
-    public Controller(CalculatorService calculatorService) {
+    public CalculatorController(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
     }
 
@@ -22,22 +22,31 @@ public class Controller {
 
     @GetMapping("/plus")
     public String showSum(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " + " + num2 + " = " + calculatorService.calculateSum(num1,num2);
+        int plus = calculatorService.calculateSum(num1,num2);
+        return num1 + " + " + num2 + " = " + plus;
     }
 
     @GetMapping("/minus")
     public String showDifference(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " - " + num2 + " = " + calculatorService.calculateDifference(num1,num2);
+        int difference = calculatorService.calculateDifference(num1,num2);
+        return num1 + " - " + num2 + " = " + difference;
     }
 
     @GetMapping("/multiply")
     public String showMultiplication(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " * " + num2 + " = " + calculatorService.calculateMultiplication(num1, num2);
+        int multiply = calculatorService.calculateMultiplication(num1, num2);
+        return num1 + " * " + num2 + " = " + multiply;
     }
 
     @GetMapping("/divide")
     public String showQuotient(@RequestParam int num1, @RequestParam int num2) {
-        return num1 + " / " + num2 + " = " + calculatorService.calculateQuotient(num1, num2);
+        double divide;
+        try {
+            divide = calculatorService.calculateQuotient(num1, num2);
+        } catch (Throwable throwable) {
+            return throwable.getMessage();
+        }
+        return num1 + " / " + num2 + " = " + divide;
     }
 
 }
