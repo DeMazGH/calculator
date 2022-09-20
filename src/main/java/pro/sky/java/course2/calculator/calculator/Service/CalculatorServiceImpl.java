@@ -6,22 +6,22 @@ import org.springframework.stereotype.Service;
 public class CalculatorServiceImpl implements CalculatorService{
 
     @Override
-    public int calculateSum(int num1, int num2) {
+    public int calculateSum(Integer num1, Integer num2) {
         return num1 + num2;
     }
 
     @Override
-    public int calculateDifference(int num1, int num2) {
+    public int calculateDifference(Integer num1, Integer num2) {
         return num1 - num2;
     }
 
     @Override
-    public int calculateMultiplication(int num1, int num2) {
+    public int calculateMultiplication(Integer num1, Integer num2) {
         return num1 * num2;
     }
 
     @Override
-    public double calculateQuotient(int num1, int num2) {
+    public double calculateQuotient(Integer num1, Integer num2) {
         if (num2 == 0) {
             throw new RuntimeException("Нельзя делить на ноль");
         }

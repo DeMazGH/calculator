@@ -21,25 +21,41 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public String showSum(@RequestParam int num1, @RequestParam int num2) {
+    public String showSum(@RequestParam(required = false) Integer num1,
+                          @RequestParam(required = false) Integer num2) {
+        if (num1 == null || num2 == null) {
+            return "Отсутствует параметр";
+        }
         int plus = calculatorService.calculateSum(num1,num2);
         return num1 + " + " + num2 + " = " + plus;
     }
 
     @GetMapping("/minus")
-    public String showDifference(@RequestParam int num1, @RequestParam int num2) {
+    public String showDifference(@RequestParam(required = false) Integer num1,
+                                 @RequestParam(required = false) Integer num2) {
+        if (num1 == null || num2 == null) {
+            return "Отсутствует параметр";
+        }
         int difference = calculatorService.calculateDifference(num1,num2);
         return num1 + " - " + num2 + " = " + difference;
     }
 
     @GetMapping("/multiply")
-    public String showMultiplication(@RequestParam int num1, @RequestParam int num2) {
+    public String showMultiplication(@RequestParam(required = false) Integer num1,
+                                     @RequestParam(required = false) Integer num2) {
+        if (num1 == null || num2 == null) {
+            return "Отсутствует параметр";
+        }
         int multiply = calculatorService.calculateMultiplication(num1, num2);
         return num1 + " * " + num2 + " = " + multiply;
     }
 
     @GetMapping("/divide")
-    public String showQuotient(@RequestParam int num1, @RequestParam int num2) {
+    public String showQuotient(@RequestParam(required = false) Integer num1,
+                               @RequestParam(required = false) Integer num2) {
+        if (num1 == null || num2 == null) {
+            return "Отсутствует параметр";
+        }
         double divide;
         try {
             divide = calculatorService.calculateQuotient(num1, num2);
