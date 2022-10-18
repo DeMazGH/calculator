@@ -56,12 +56,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return "Отсутствует параметр";
         }
-        double divide;
-        try {
-            divide = calculatorService.calculateQuotient(num1, num2);
-        } catch (Throwable throwable) {
-            return throwable.getMessage();
-        }
+        double divide = calculatorService.calculateQuotient(num1, num2);
         return num1 + " / " + num2 + " = " + divide;
     }
 
