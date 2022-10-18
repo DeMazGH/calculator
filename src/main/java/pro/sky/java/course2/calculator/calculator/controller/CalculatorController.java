@@ -1,10 +1,10 @@
-package pro.sky.java.course2.calculator.calculator.Controller;
+package pro.sky.java.course2.calculator.calculator.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import pro.sky.java.course2.calculator.calculator.Service.CalculatorService;
+import pro.sky.java.course2.calculator.calculator.service.CalculatorService;
 
 @RestController
 @RequestMapping("/calculator")
@@ -56,12 +56,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return "Отсутствует параметр";
         }
-        double divide;
-        try {
-            divide = calculatorService.calculateQuotient(num1, num2);
-        } catch (Throwable throwable) {
-            return throwable.getMessage();
-        }
+        double divide = calculatorService.calculateQuotient(num1, num2);
         return num1 + " / " + num2 + " = " + divide;
     }
 

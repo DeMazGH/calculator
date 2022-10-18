@@ -1,4 +1,4 @@
-package pro.sky.java.course2.calculator.calculator.Service;
+package pro.sky.java.course2.calculator.calculator.service;
 
 public interface CalculatorService {
 
