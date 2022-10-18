@@ -1,8 +1,10 @@
 package pro.sky.java.course2.calculator.calculator.service;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorServiceImplTest {
 
@@ -28,8 +30,8 @@ public class CalculatorServiceImplTest {
         Integer expected2 = out.calculateSum(num3, num4);
         Integer actual2 = num3 + num4;
 
-        Assertions.assertEquals(expected1, actual1);
-        Assertions.assertEquals(expected2, actual2);
+        assertEquals(expected1, actual1);
+        assertEquals(expected2, actual2);
     }
 
     @Test
@@ -39,8 +41,8 @@ public class CalculatorServiceImplTest {
         Integer expected2 = out.calculateDifference(num3, num4);
         Integer actual2 = num3 - num4;
 
-        Assertions.assertEquals(expected1, actual1);
-        Assertions.assertEquals(expected2, actual2);
+        assertEquals(expected1, actual1);
+        assertEquals(expected2, actual2);
     }
 
     @Test
@@ -50,8 +52,8 @@ public class CalculatorServiceImplTest {
         Integer expected2 = out.calculateMultiplication(num3, num4);
         Integer actual2 = num3 * num4;
 
-        Assertions.assertEquals(expected1, actual1);
-        Assertions.assertEquals(expected2, actual2);
+        assertEquals(expected1, actual1);
+        assertEquals(expected2, actual2);
     }
 
     @Test
@@ -63,8 +65,8 @@ public class CalculatorServiceImplTest {
         Double expected2 = out.calculateQuotient(num3, num4);
         Double actual2 = (double) num3 / num4;
 
-        Assertions.assertEquals(expected1, actual1);
-        Assertions.assertEquals(expected2, actual2);
-        Assertions.assertThrows(IllegalArgumentException.class, () -> out.calculateQuotient(num1,num0));
+        assertEquals(expected1, actual1);
+        assertEquals(expected2, actual2);
+        assertThrows(IllegalArgumentException.class, () -> out.calculateQuotient(num1,num0));
     }
 }
